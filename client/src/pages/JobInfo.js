@@ -12,6 +12,8 @@ function JobInfo() {
 
   const job = jobs.find((job) => job._id === params.id);
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const userid = JSON.parse(localStorage.getItem("user"))._id;
 
   const appliedCandidates = job.appliedCandidates;
@@ -74,7 +76,7 @@ function JobInfo() {
             <hr />
 
             <div className="flex justify-content-between">
-              {job.postedBy === userid ? (
+              {user.isAdmin ? (
                 <Button>
                   <Link to={`/editjob/${job._id}`}>Edit Now</Link>
                 </Button>

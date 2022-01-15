@@ -64,12 +64,18 @@ class DefaultLayout extends React.Component {
             <Menu.Item key="/appliedjobs" icon={<UploadOutlined />}>
               <Link to="/appliedjobs">Applied Jobs</Link>
             </Menu.Item>
-            <Menu.Item key="/postjobs" icon={<UploadOutlined />}>
-              <Link to="/postjob">Post Job</Link>
-            </Menu.Item>
-            <Menu.Item key="/posted" icon={<CheckOutlined />}>
-              <Link to="/posted">Posted</Link>
-            </Menu.Item>
+            {user.isAdmin && (
+              <>
+                <Menu.Item key="/postjobs" icon={<UploadOutlined />}>
+                  <Link to="/postjob">Post Job</Link>
+                </Menu.Item>
+
+                <Menu.Item key="/posted" icon={<CheckOutlined />}>
+                  <Link to="/posted">Posted</Link>
+                </Menu.Item>
+              </>
+            )}
+
             <Menu.Item key="/login" icon={<UploadOutlined />}>
               <Link to="/login" onClick={this.logout}>
                 Logout

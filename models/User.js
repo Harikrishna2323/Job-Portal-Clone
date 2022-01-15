@@ -18,7 +18,10 @@ const userSchema = new mongoose.Schema(
     skills: { type: [], default: [""] },
     projects: { type: [], default: [""] },
     experience: { type: [], default: [""] },
-
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
     appliedJobs: [],
   },
   { timestamps: true }
